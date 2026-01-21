@@ -1011,11 +1011,11 @@ async def txt_handler(bot: Client, m: Message):
                         res_file = await helper.download_and_decrypt_video(url, cmd, name, appxkey)  
                         filename = res_file  
                         await prog.delete(True) 
-                        if os.exists(filename):
+                        if os.path.exists(filename):
                             await helper.send_vid(bot, m, cc, filename, thumb, name, prog, channel_id, watermark=watermark)
                             count += 1
                         else:
-                            await bot.send_message(channel_id, f'⚠️**Downloading Failed**⚠️\n**Name** =>> `{str(count).zfill(3)} {name1}`\n**Url** =>> {link0}\n\n<blockquote><i><b>Failed Reason: {str(e)}</b></i></blockquote>', disable_web_page_preview=True)
+                            await bot.send_message(channel_id, f'⚠️**Downloading Failed**⚠️\n**Name** =>> `{str(count).zfill(3)} {name1}`\n**Url** =>> {link0}\n\n<blockquote><i><b>Failed Reason: {str(File not found)}</b></i></blockquote>', disable_web_page_preview=True)
                             failed_count += 1
                             count += 1
                             continue
